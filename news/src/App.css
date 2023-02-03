@@ -1,0 +1,19 @@
+.Container {
+  background-color: white;
+  margin: 15px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.navbar-nav-item{
+  /* border: 1px;
+  border-style: solid;
+  border-color: black; */
+  color: black;
+}
