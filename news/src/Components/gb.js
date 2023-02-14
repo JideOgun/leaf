@@ -1,20 +1,61 @@
-import { useEffect, useState } from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
-function GB() {
+function Gb() {
   const [gbData, setGbData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=2b73bb10711d44cea84aedf0b65c5973"
+      "https://newsapi.org/v2/top-headlines?country=gb&apiKey=cc9f18d38b7344d4925b87b47fe2c8ab"
     )
-      .then((response) => response.json())
-      .then((data) => {
-        setGbData(data);
+      .then((response) => {
+        return response.json();
+      })
+      .then((info) => {
+        console.log(info);
+        setGbData(
+          info.articles.map((e) => {
+            return e["author"];
+          })
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
-  return <div> Great Britain
-  {console.log(gbData)}</div>;
+  const renderGbData = (gbData) => {
+    return (
+      <Card className="newsCard">
+        {gbData &&
+          gbData.map((element, i) => {
+            return (
+              <div className="newsCard" key={i++}>
+                {element}
+              </div>
+            );
+          })}
+      </Card>
+    );
+  };
+
+  return (
+    <Container>
+      Top News from CountryName
+      <Row>Rendered data from api will go here</Row>
+      {loading && <div>A moment please...</div>}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
+      {renderGbData(gbData)}
+    </Container>
+  );
 }
 
-export default GB;
+export default Gb;
