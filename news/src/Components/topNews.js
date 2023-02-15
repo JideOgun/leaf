@@ -164,6 +164,8 @@ function TopNews() {
                     {" "}
                     {element["author"] ? element["author"] : "No Author"}
                   </div>
+                  <br />
+                  Select title to Open details
                 </div>
               );
             })}
@@ -174,7 +176,8 @@ function TopNews() {
 
   return (
     <div>
-      Top News from {currentPage}
+    <h1 className="title">Top News from {currentPage}</h1>
+      
       <div>
         <form>
           <input

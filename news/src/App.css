@@ -29,7 +29,11 @@
   padding: 2px 46px;
 }
 .card-img{
- 
+ width: 130%;
+ border-radius: 3px;
+ margin-right: 55px;
+ display: flex;
+ justify-content: center;
 }
 .card {
   margin: auto;
@@ -47,11 +51,13 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(43, 153, 226);
+  background-color: rgb(204, 119, 44);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+
 
 .modalAuthor {
   border-style: solid;
@@ -65,7 +71,7 @@
 
 .title {
   padding: 2px 16px;
-  background-color: #5cb4b8;
+  background-color: rgb(204, 119, 44);
   color: white;
   width: 100%;
   border-style: solid;

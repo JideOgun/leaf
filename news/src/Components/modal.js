@@ -17,7 +17,7 @@ function Modal(props) {
     });
 
     return (
-      <div className="card newsCard" >
+      <div className="card newsCard modalCard" >
         <div className="card-img">
           <img
             className="card-img"

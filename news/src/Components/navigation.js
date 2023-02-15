@@ -16,14 +16,7 @@ function Navigation({ currentPage, handlePageChange }) {
           >
             Top News
           </Nav.Link>
-          <Nav.Link
-            id="categoriesLink"
-            className="navbar-nav-item"
-            href="Categories"
-            onClick={() => handlePageChange("Categories")}
-          >
-            Categories
-          </Nav.Link>
+         
         </Nav>
       </Container>
     </Navbar>
