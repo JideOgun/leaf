@@ -14,7 +14,6 @@ function Categories() {
         return response.json();
       })
       .then((info) => {
-        console.log(info);
         setUsaData(
           info.articles.map((e) => {
             return e["author"];
@@ -29,25 +28,11 @@ function Categories() {
       });
   }, []);
 
-  const renderUsaData = (usaData) => {
-    return (
-      <Card className="newsCard">
-        {usaData &&
-          usaData.map((element, i) => {
-            return (
-              <div className="newsCard" key={i++}>
-                {element}
-              </div>
-            );
-          })}
-      </Card>
-    );
-  };
+
 
   return (
     <Container>
-      Top News from CountryName
-      <Row>Rendered data from api will go here</Row>
+  
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>

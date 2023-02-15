@@ -1,5 +1,5 @@
 .Container {
-  background-color: white;
+  background-color: rgb(142, 121, 121);
   margin: 15px;
 }
 
@@ -47,10 +47,29 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: blueviolet;
+  background-color: rgb(43, 153, 226);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modalAuthor {
+  border-style: solid;
+  border-radius: 6px;
+  border-color: rgb(18, 17, 17);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.title {
+  padding: 2px 16px;
+  background-color: #5cb4b8;
+  color: white;
+  width: 100%;
+  border-style: solid;
+  border-radius: 6px;
 }
 
 .content {

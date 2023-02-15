@@ -13,11 +13,11 @@ function Modal(props) {
 
   const selectedData = () => {
     const data = joinedData.filter((e) => {
-      return e.author === props.modalData;
+      return e.title === props.modalData;
     });
 
     return (
-      <div className="card newsCard">
+      <div className="card newsCard" >
         <div className="card-img">
           <img
             className="card-img"
@@ -26,10 +26,9 @@ function Modal(props) {
             style={{ width: "100%" }}
           />
         </div>
-        {console.log(data)}
         {data[0].description}
         <br />
-        <div> {data[0].author}</div>
+        <div className="modalAuthor"> {data[0].author ? data[0].author : "No Author"}</div>
       </div>
     );
   };
@@ -37,7 +36,7 @@ function Modal(props) {
   return (
     <div className="modal" onClick={props.onClose}>
       {selectedData()}
-      <div></div>
+      
     </div>
   );
 }

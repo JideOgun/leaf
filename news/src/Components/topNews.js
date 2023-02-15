@@ -8,7 +8,7 @@ function TopNews() {
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(true);
   const [usaData, setUsaData] = useState();
-  const [currentPage, setCurrentPage] = useState("GB");
+  const [currentPage, setCurrentPage] = useState("Great Britain");
   const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState("");
@@ -83,33 +83,47 @@ function TopNews() {
 
   const renderSearch = () => {
     if (currentPage === "Great Britain" && gbData) {
-    
-
       return (
         <div className="content">
           {gbData &&
             gbData.map((element, i) => {
               return (
                 <div className="card newsCard" key={i++}>
+                  <div
+                    className="title"
+                    onClick={(e) => {
+                      setShow(true);
+                      setModalData(e.target.textContent.trim());
+                    }}
+                  >
+                    {element["title"]}
+                  </div>
+                  <br />
+                  <br />
                   <div className="card-img">
                     <img
                       className="card-img"
                       src={element["urlToImage"]}
-                      alt="stuff"
+                      alt={element["title"]}
                       style={{ width: "100%" }}
                     />
                   </div>
                   {element["description"]}
                   <br />
+                  <br />
                   <div
-                    onClick={(e) => {
-                      setShow(true);
-                      setModalData(e.target.textContent.trim());
-                    }}
-                  >damag
+                    id="setModaldiv"
+                    className="modalAuthor"
+                    // onClick={(e) => {
+                    //   setShow(true);
+                    //   setModalData(e.target.textContent.trim());
+                    // }}
+                  >
                     {" "}
-                    {element["author"]}
+                    {element["author"] ? element["author"] : "No Author"}
                   </div>
+                  <br />
+                  Select Author Name to Open details
                 </div>
               );
             })}
@@ -122,13 +136,22 @@ function TopNews() {
             usaData.map((element, i) => {
               return (
                 <div className="card newsCard" key={i++}>
+                  <div
+                    className="title"
+                    onClick={(e) => {
+                      setShow(true);
+                      setModalData(e.target.textContent.trim());
+                    }}
+                  >
+                    {element["title"]}
+                  </div>
                   <div> {element["description"]}</div>
 
                   <div className="card-img">
                     <img
                       className="card-img"
                       src={element["urlToImage"]}
-                      alt="stuff"
+                      alt={element["title"]}
                       style={{ width: "100%" }}
                     />
                   </div>
@@ -140,7 +163,7 @@ function TopNews() {
                     }}
                   >
                     {" "}
-                    {element["author"]}
+                    {element["author"] ? element["author"] : "No Author"}
                   </div>
                 </div>
               );
@@ -166,14 +189,19 @@ function TopNews() {
         </form>
       </div>
       <div>
-        <button name="Great Britain" onClick={setGBPage}>
-          GB
+        <button
+          name="Great Britain"
+          onClick={() => {
+            setGBPage();
+            setCurrentPage("Great Britain");
+          }}
+        >
+          Great Britain
         </button>
         <button name="The United States" onClick={setUSAPage}>
-          USA
+          The United States
         </button>
       </div>
-      <div>Rendered data from api will go here</div>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
