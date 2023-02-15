@@ -21,6 +21,7 @@ function TopNews() {
         return response.json();
       })
       .then((info) => {
+   
         const a = info.articles.map((e) => {
           return e;
         });
@@ -51,6 +52,7 @@ function TopNews() {
         return response.json();
       })
       .then((info) => {
+    
         const a = info.articles.map((e) => {
           return e;
         });
@@ -114,16 +116,13 @@ function TopNews() {
                   <div
                     id="setModaldiv"
                     className="modalAuthor"
-                    // onClick={(e) => {
-                    //   setShow(true);
-                    //   setModalData(e.target.textContent.trim());
-                    // }}
+                  
                   >
                     {" "}
                     {element["author"] ? element["author"] : "No Author"}
                   </div>
                   <br />
-                  Select Author Name to Open details
+                  Select title to Open details
                 </div>
               );
             })}
