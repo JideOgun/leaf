@@ -29,6 +29,7 @@ function Modal(props) {
         {data[0].description}
         <br />
         <div className="modalAuthor"> {data[0].author ? data[0].author : "No Author"}</div>
+        <div>Click anywhere to go back</div>
       </div>
     );
   };
@@ -36,6 +37,7 @@ function Modal(props) {
   return (
     <div className="modal" onClick={props.onClose}>
       {selectedData()}
+    
       
     </div>
   );
